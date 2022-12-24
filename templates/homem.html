@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e3e3e3;
+        }
+
+        .login p {
+            text-align: center;
+            font-weight: 700;
+            font-size: 30px;
+
+        }
+
+        .login p:last-child {
+            position: absolute;
+            bottom: -100px;
+            padding: 10px;
+        }
+
+        form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: #fff;
+            width: 350px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form input {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+
+        }
+
+        form button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 5px 40px 5px 40px;
+            border: none;
+            border: 1px solid #000;
+        }
+
+        form button:hover {
+            transition: 0.3s ease;
+            background-color: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+
+
+        <form action="{{ url_for('predict')}}" method="post">
+            <p>Diyabet tahmin</p>
+            <input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" />
+            <input type="text" name="PlasmaGlucose" placeholder="PlasmaGlucose" required="required" />
+            <input type="text" name="DiastolicBloodPressure" placeholder="DiastolicBloodPressure" required="required" />
+            <input type="text" name="TricepsThickness" placeholder="TricepsThickness" required="required" />
+            <input type="text" name="SerumInsulin" placeholder="SerumInsulin" required="required" />
+            <input type="text" name="BMI" placeholder="BMI" required="required" />
+            <input type="text" name="DiabetesPedigree" placeholder="DiabetesPedigree" required="required" />
+            <input type="text" name="Age" placeholder="Age" required="required" />
+
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        <p>{{ result_of_prediction }}</p>
+
+    </div>
+</body>
+
+</html>
